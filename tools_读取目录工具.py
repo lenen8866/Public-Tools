@@ -1,8 +1,5 @@
-
-
 import os  # 导入操作系统模块，用于文件和目录操作
 import re  # 导入正则表达式模块，用于提取文件名中的数字
-
 
 def find_files(directory, extensions):
     """
@@ -24,7 +21,6 @@ def find_files(directory, extensions):
                 files.append(file_name)  # 只保存文件名，不包含路径
     return files
 
-
 def sort_files_numerically(file_list):
     """
     按照文件名中的数字对文件列表进行排序。
@@ -44,10 +40,10 @@ def sort_files_numerically(file_list):
     # 按提取的数字对文件名进行排序
     return sorted(file_list, key=extract_number)
 
-
 # 在代码中指定路径和文件类型
-current_directory = "/Users/jianxinwei/Pycharm/tset/output/又"  # 替换为你要搜索的目录路径
-file_extensions = ('.txt', '.mp3')  # 替换为你想查找的文件类型，可以添加更多类型
+current_directory = "story/纯文本文件"  # 替换为你要搜索的目录路径
+file_extensions = ('.txt')  # 替换为你想查找的文件类型，可以添加更多类型
+# file_extensions = ('.txt',".mp3")  # 替换为你想查找的文件类型，可以添加更多类型
 
 # 检查指定的路径是否有效
 if not os.path.isdir(current_directory):
@@ -59,5 +55,7 @@ else:
     # 按数字顺序排序文件名
     files_array_sorted = sort_files_numerically(files_array)  # 对文件按数字顺序排序
 
-    # 打印排序后的文件数组
-    print("文件数组（按数字排序）:", files_array_sorted)
+    # 逐行打印排序后的文件名
+    print("排序后的文件名：")
+    for file_name in files_array_sorted:
+        print(file_name)
