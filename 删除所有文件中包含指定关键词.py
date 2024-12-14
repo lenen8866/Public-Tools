@@ -7,7 +7,7 @@ def delete_txt_files_with_processed(directory):
             # 说明endswith(""),删除没有尾缀的文件
             #可以设置任何的尾缀的文件file.endswith("txt"),("html"),
             #而“_processed”是属于关键词,文件名的关键词,可以随意改要删除的.
-            if file.endswith("txt") and "" in file:  # 检查.txt文件名中是否包含"_processed"
+            if file.endswith("txt") and "\<break time=" in file:  # 检查.txt文件名中是否包含"_processed"
                 file_path = os.path.join(root, file)
                 print(f"Deleting file: {file_path}")
                 os.remove(file_path)
